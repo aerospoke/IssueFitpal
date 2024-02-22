@@ -15,10 +15,10 @@ class CreateClasesTable extends Migration
     {
         Schema::create('clases', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre'); // Nombre de la clase
-            $table->text('descripcion')->nullable(); // Descripción opcional de la clase
-            $table->dateTime('hora_inicio'); // Hora de inicio de la clase
-            $table->dateTime('hora_fin'); // Hora de finalización de la clase
+            $table->string('nombre');
+            $table->text('descripcion')->nullable();
+            $table->dateTime('hora_inicio');
+            $table->dateTime('hora_fin');
             // Puedes agregar más columnas según tus necesidades
             $table->timestamps();
         });
