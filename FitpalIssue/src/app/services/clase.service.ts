@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class ClaseService {
   private apiUrl = 'http://127.0.0.1:8000/api/clases';
-
   constructor(private http: HttpClient) { }
 
+  
   getClases(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
