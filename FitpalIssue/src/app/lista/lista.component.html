@@ -1,22 +1,28 @@
 <div class="contenedor">
+
+  <div class="container-form">
+    <form (ngSubmit)="crearClase()">
+      <p>Ingresa un nombre:</p>
+      <input type="text" [(ngModel)]="nuevaClase.nombre" name="nombre">
+      <p>Ingresa una descripcion:</p>
+      <input type="text" [(ngModel)]="nuevaClase.descripcion" name="descripcion">
+      <button type="submit">Crear Clase</button>
+    </form>
+  </div>
+
   <div class="container-lista">
-    <div class ="header">
-      <h1> lista de clases</h1>
+    <div class="header">
+      <h1>Lista de clases</h1>
     </div>
     <div class="content">
-      <ul>
-        <li *ngFor="let clase of clases">
-          {{ clase.nombre }} 
-        </li>
-      </ul>
-    </div>
-
-    <div class="conatiner-form">
-      <form (ngSubmit)="crearClase()">
-        <input type="text" [(ngModel)]="nuevaClase.nombre" name="nombre">
-        <input type="text" [(ngModel)]="nuevaClase.descripcion" name="descripcion">
-        <button type="submit">Crear Clase</button>
-      </form>
+      
+        
+          <div *ngFor="let clase of clases" class="classListDetail">
+            <h4>Nombre de la clase:<a> {{ clase.nombre }}</a> </h4>
+            <h4>Descripción<a> {{ clase.descripcion }}</a> </h4>
+          </div>
+        
+      
     </div>
   </div>
 
