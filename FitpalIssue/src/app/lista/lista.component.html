@@ -5,7 +5,9 @@
     </div>
     <div class="content">
       <ul>
-        <p>pprueba</p>
+        <li *ngFor="let clase of clases">
+          {{ clase.nombre }}
+        </li>
       </ul>
     </div>
   </div>

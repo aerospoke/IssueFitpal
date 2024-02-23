@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { ClaseService } from '../services/clase.service';
 
 @Component({
   selector: 'app-lista',
-  standalone:true,
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.scss'],
+  styleUrls: ['./lista.component.css']
 })
-export class ListaComponent  implements OnInit {
-    
-  title = 'FitpalIssue';
-  constructor() { }
+export class ListaComponent implements OnInit {
+  clases: any = [];
 
-  ngOnInit() {}
+  constructor(private claseService: ClaseService) { }
 
+  ngOnInit(): void {
+    this.cargarClases();
+  }
+
+  cargarClases(): void {
+    this.claseService.getClases().subscribe(
+      data => {
+        this.clases = data;
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }
-

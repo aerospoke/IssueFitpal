@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('clases')->group(function () {
-    Route::get('/', 'ClaseController@index'); // Obtener todas las clases
-    Route::get('/{id}', 'ClaseController@show'); // Obtener una clase por su ID
-    Route::post('/', 'ClaseController@store'); // Agregar una nueva clase
-    Route::put('/{id}', 'ClaseController@update'); // Actualizar una clase existente
-    Route::delete('/{id}', 'ClaseController@destroy'); // Eliminar una clase por su ID
+    Route::get('/', [ClaseController::class, 'index']); // Obtener todas las clases
+    Route::get('/{id}', [ClaseController::class, 'show']); // Obtener una clase por su ID
+    Route::post('/', [ClaseController::class, 'store']); // Agregar una nueva clase
+    Route::put('/{id}', [ClaseController::class, 'update']); // Actualizar una clase existente
+    Route::delete('/{id}', [ClaseController::class, 'destroy']); // Eliminar una clase por su ID
 });
