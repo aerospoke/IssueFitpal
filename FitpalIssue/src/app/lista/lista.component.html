@@ -6,9 +6,17 @@
     <div class="content">
       <ul>
         <li *ngFor="let clase of clases">
-          {{ clase.nombre }}
+          {{ clase.nombre }} 
         </li>
       </ul>
+    </div>
+
+    <div class="conatiner-form">
+      <form (ngSubmit)="crearClase()">
+        <input type="text" [(ngModel)]="nuevaClase.nombre" name="nombre">
+        <input type="text" [(ngModel)]="nuevaClase.descripcion" name="descripcion">
+        <button type="submit">Crear Clase</button>
+      </form>
     </div>
   </div>
 

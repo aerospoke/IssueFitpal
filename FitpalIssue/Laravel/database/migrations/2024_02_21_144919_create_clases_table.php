@@ -17,8 +17,7 @@ class CreateClasesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->dateTime('hora_inicio');
-            $table->dateTime('hora_fin');
+            
             // Puedes agregar más columnas según tus necesidades
             $table->timestamps();
         });

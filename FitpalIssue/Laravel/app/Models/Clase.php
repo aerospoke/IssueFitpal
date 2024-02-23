@@ -9,6 +9,6 @@ class Clase extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'descripcion', 'hora_inicio', 'hora_fin'];
+    protected $fillable = ['nombre', 'descripcion'];
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ClaseService } from '../services/clase.service';
 
 @Component({
@@ -7,12 +8,14 @@ import { ClaseService } from '../services/clase.service';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
 })
-
-
 export class ListaComponent implements OnInit {
   clases: any = [];
+  nuevaClase: any = {
+    nombre: '',
+    descripcion: ''
+  };
 
   constructor(private claseService: ClaseService) {}
 
@@ -27,6 +30,19 @@ export class ListaComponent implements OnInit {
       },
       error => {
         console.error(error);
+      }
+    );
+  }
+
+  crearClase(): void {
+    this.claseService.crearClase(this.nuevaClase).subscribe(
+      response => {
+        console.log('Clase creada', response);
+        this.clases.push(response);
+        this.nuevaClase = { nombre: '', descripcion: '' };
+      },
+      error => {
+        console.error('Error al crear clase', error);
       }
     );
   }

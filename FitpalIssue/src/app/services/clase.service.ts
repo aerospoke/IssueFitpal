@@ -14,4 +14,16 @@ export class ClaseService {
     return this.http.get(this.apiUrl);
   }
 
+  crearClase(clase: any): Observable<any> {
+    return this.http.post(this.apiUrl, clase);
+  }
+
+  actualizarClase(id: number, clase: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, clase);
+  }
+
+  eliminarClase(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
 }

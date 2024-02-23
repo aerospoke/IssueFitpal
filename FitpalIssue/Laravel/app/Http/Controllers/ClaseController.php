@@ -28,9 +28,7 @@ class ClaseController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'descripcion' => 'nullable',
-            'hora_inicio' => 'required|date',
-            'hora_fin' => 'required|date|after:hora_inicio',
+            'descripcion' => 'nullable'
         ]);
 
         $clase = Clase::create($request->all());
@@ -49,8 +47,6 @@ class ClaseController extends Controller
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'nullable',
-            'hora_inicio' => 'required|date',
-            'hora_fin' => 'required|date|after:hora_inicio',
         ]);
 
         $clase->update($request->all());
