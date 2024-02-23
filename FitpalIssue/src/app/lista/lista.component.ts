@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ClaseService } from '../services/clase.service';
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  styleUrls: ['./lista.component.scss'],
+  standalone: true,
+  imports: [CommonModule],
 })
+
+
 export class ListaComponent implements OnInit {
   clases: any = [];
 
-  constructor(private claseService: ClaseService) { }
+  constructor(private claseService: ClaseService) {}
 
   ngOnInit(): void {
     this.cargarClases();
@@ -21,7 +26,8 @@ export class ListaComponent implements OnInit {
         this.clases = data;
       },
       error => {
-        console.log(error);
-      });
+        console.error(error);
+      }
+    );
   }
 }
