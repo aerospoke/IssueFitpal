@@ -14,7 +14,8 @@ export class ListaComponent implements OnInit {
   clases: any = [];
   nuevaClase: any = {
     nombre: '',
-    descripcion: ''
+    descripcion: '',
+    horario: ''
   };
 
   constructor(private claseService: ClaseService) {}
@@ -42,7 +43,7 @@ export class ListaComponent implements OnInit {
         this.nuevaClase = { nombre: '', descripcion: '' };
       },
       error => {
-        console.error('Error al crear clase', error);
+        console.error('Error al crear classe', error);
       }
     );
   }

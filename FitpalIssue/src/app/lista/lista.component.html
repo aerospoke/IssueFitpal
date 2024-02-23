@@ -4,8 +4,16 @@
     <form (ngSubmit)="crearClase()">
       <p>Ingresa un nombre para la nueva clase:</p>
       <input type="text" [(ngModel)]="nuevaClase.nombre" name="nombre">
+
       <p>Ingresa una descripcion para la clase:</p>
       <input type="text" [(ngModel)]="nuevaClase.descripcion" name="descripcion">
+      
+      <p>Ingresa un horario para la clase:</p>
+      <select [(ngModel)]="nuevaClase.horario" name="horario">
+        <option value="Día">Día (08:00 - 18:00)</option>
+        <option value="Noche">Noche (18:00 - 08:00)</option>
+      </select>
+
       <button type="submit">Crear Clase</button>
     </form>
   </div>
@@ -15,15 +23,16 @@
       <h1>Lista de clases</h1>
     </div>
     <div class="content">
-      
-        
-          <div *ngFor="let clase of clases" class="classListDetail">
-            <h4>Nombre de la clase:<a> {{ clase.nombre }}</a> </h4>
-            <h4>Descripción<a> {{ clase.descripcion }}</a> </h4>
-            <button class="buttonx" (click)="eliminarClase(clase.id)">Eliminar</button>
-          </div>
-        
-      
+
+
+      <div *ngFor="let clase of clases" class="classListDetail">
+        <h4>Nombre de la clase:<a> {{ clase.nombre }}</a> </h4>
+        <h4>Descripción<a> {{ clase.descripcion }}</a> </h4>
+        <h4>Horario<a> {{ clase.horario }}</a> </h4>
+        <button class="buttonx" (click)="eliminarClase(clase.id)">Eliminar</button>
+      </div>
+
+
     </div>
   </div>
 
