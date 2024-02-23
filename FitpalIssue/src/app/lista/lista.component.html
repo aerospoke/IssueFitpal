@@ -2,9 +2,9 @@
 
   <div class="container-form">
     <form (ngSubmit)="crearClase()">
-      <p>Ingresa un nombre:</p>
+      <p>Ingresa un nombre para la nueva clase:</p>
       <input type="text" [(ngModel)]="nuevaClase.nombre" name="nombre">
-      <p>Ingresa una descripcion:</p>
+      <p>Ingresa una descripcion para la clase:</p>
       <input type="text" [(ngModel)]="nuevaClase.descripcion" name="descripcion">
       <button type="submit">Crear Clase</button>
     </form>
@@ -20,6 +20,7 @@
           <div *ngFor="let clase of clases" class="classListDetail">
             <h4>Nombre de la clase:<a> {{ clase.nombre }}</a> </h4>
             <h4>Descripción<a> {{ clase.descripcion }}</a> </h4>
+            <button class="buttonx" (click)="eliminarClase(clase.id)">Eliminar</button>
           </div>
         
       

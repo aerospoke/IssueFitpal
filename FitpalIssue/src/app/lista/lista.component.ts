@@ -46,4 +46,12 @@ export class ListaComponent implements OnInit {
       }
     );
   }
+
+  eliminarClase(id: number): void {
+    this.claseService.eliminarClase(id).subscribe(() => {
+      this.clases = this.clases.filter((clase: any) => clase.id !== id);
+    }, (error) => {
+      console.error('Error al eliminar clase', error);
+    });
+  }
 }

@@ -54,16 +54,13 @@ class ClaseController extends Controller
         return response()->json($clase, 200);
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $clase = Clase::find($id);
-
-        if (!$clase) {
-            return response()->json(['error' => 'Clase no encontrada'], 404);
+        if ($clase) {
+            $clase->delete();
+            return response()->json(['message' => 'Clase eliminada correctamente'], 200);
         }
-
-        $clase->delete();
-
-        return response()->json(['message' => 'Clase eliminada correctamente'], 200);
-    }
+        return response()->json(['error' => 'Clase no encontrada'], 404);
+      }
+      
 }
